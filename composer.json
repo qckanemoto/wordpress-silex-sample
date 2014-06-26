@@ -1,0 +1,7 @@
+{
+    "name": "qckanemoto/wordpress-silex-sample",
+    "require": {
+        "silex/silex": "1.2.*@dev"
+    },
+    "minimum-stability": "dev"
+}
