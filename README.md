@@ -8,6 +8,7 @@ WordPress + Silex sample
 $ cd /path/to/DocumentRoot
 $ git clone git@github.com:qckanemoto/wordpress-silex-sample.git
 $ cd wordpress-silex-sample
+$ composer install
 $ mysql -u[user_name] -p
 mysql> create database wordpress_silex_sample default character set utf8;
 mysql> grant all privileges on wordpress_silex_sample.* to [user_name]@localhost
