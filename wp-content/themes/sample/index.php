@@ -4,6 +4,11 @@ $app['debug'] = true;
 
 $util = new SampleUtility();
 
+// for authors.
+$app->get('/archives/author/{route}', function ($route) use ($util) {
+    return $util->renderTemplate(__DIR__ . '/views/author.php');
+})->assert('route', '.*');
+
 // for posts.
 $app->get('/archives/{route}', function ($route) use ($util) {
     return $util->renderTemplate(__DIR__ . '/views/single.php');
@@ -17,11 +22,6 @@ $app->get('/category/{route}', function ($route) use ($util) {
 // for tags.
 $app->get('/tag/{route}', function ($route) use ($util) {
     return $util->renderTemplate(__DIR__ . '/views/tag.php');
-})->assert('route', '.*');
-
-// for authors.
-$app->get('/author/{route}', function ($route) use ($util) {
-    return $util->renderTemplate(__DIR__ . '/views/author.php');
 })->assert('route', '.*');
 
 // default.
