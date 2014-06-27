@@ -26,12 +26,14 @@ $app->get('/tag/{route}', function ($route) use ($util) {
 
 // default.
 $app->get('/{route}', function ($route) use ($util) {
-    $path = __DIR__ . '/views/pages/' . ($route ?: 'index') . '.php';
-    if (file_exists($path)) {
-        return $util->renderTemplate($path);
-    } else {
-        return $util->renderTemplate(__DIR__ . '/views/404.php');
+    $path = __DIR__ . '/views/pages/' . trim($route, '/') . '.php';
+    if (!file_exists($path)) {
+        $path = __DIR__ . '/views/pages/' . trim($route, '/') . '/index.php';
+        if (!file_exists($path)) {
+            return $util->renderTemplate(__DIR__ . '/views/404.php');
+        }
     }
+    return $util->renderTemplate($path);
 })->assert('route', '.*');
 
 $app->run();
