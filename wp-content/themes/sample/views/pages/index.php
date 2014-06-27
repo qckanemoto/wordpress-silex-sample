@@ -15,6 +15,7 @@
 
 <h2>固定ページ</h2>
 <ul>
+    <li><a href="<?php echo home_url('aaa/'); ?>">/aaa/</a></li>
     <li><a href="<?php echo home_url('aaa/bbb'); ?>">/aaa/bbb</a></li>
     <li><a href="<?php echo home_url('ccc'); ?>">/ccc</a></li>
 </ul>
