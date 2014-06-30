@@ -20,4 +20,5 @@ $ vi wp-config.php  # tailor to your environment
 
 ## Usage
 
-Just go to [http://localhost/wordpress-silex-sample](http://localhost/wordpress-silex-sample).
+* Browse website on [http://localhost/wordpress-silex-sample](http://localhost/wordpress-silex-sample)
+* Browse dashboard on [http://localhost/wordpress-silex-sample/wp-admin](http://localhost/wordpress-silex-sample/wp-admin) (user: `sample`, pass: `sample`)
