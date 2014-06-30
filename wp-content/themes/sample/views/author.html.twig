@@ -2,7 +2,7 @@
 {% for post in get_posts() %}
     {% if have_posts() %}
         {{ the_post() }}
-        <h3>{{ the_title() }}</h3>
+        <h3><a href="{{ the_permalink() }}">{{ the_title() }}</a></h3>
         <p>{{ the_content() }}</p>
     {% endif %}
 {% endfor %}

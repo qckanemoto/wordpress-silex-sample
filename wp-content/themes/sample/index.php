@@ -19,6 +19,7 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
     $twig->addFunction('get_posts', new \Twig_SimpleFunction('get_posts', 'get_posts'));
     $twig->addFunction('have_posts', new \Twig_SimpleFunction('have_posts', 'have_posts'));
     $twig->addFunction('the_post', new \Twig_SimpleFunction('the_post', 'the_post'));
+    $twig->addFunction('the_permalink', new \Twig_SimpleFunction('the_permalink', 'the_permalink'));
     $twig->addFunction('the_title', new \Twig_SimpleFunction('the_title', 'the_title'));
     $twig->addFunction('the_content', new \Twig_SimpleFunction('the_content', 'the_content'));
     $twig->addFunction('the_author', new \Twig_SimpleFunction('the_author', 'the_author'));

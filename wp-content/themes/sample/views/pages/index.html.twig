@@ -5,7 +5,7 @@
 {% for post in get_posts() %}
     {% if have_posts() %}
         {{ the_post() }}
-        <h3>{{ the_title() }}</h3>
+        <h3><a href="{{ the_permalink() }}">{{ the_title() }}</a></h3>
         <p>著者：{{ the_author_posts_link() }}</p>
         <p>カテゴリ：{{ the_category() }}</p>
         <p>{{ the_tags() }}</p>
