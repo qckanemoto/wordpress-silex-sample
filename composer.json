@@ -2,7 +2,8 @@
     "name": "qckanemoto/wordpress-silex-sample",
     "require": {
         "silex/silex": "1.2.*@dev",
-        "twig/twig": ">=1.8,<2.0-dev"
+        "twig/twig": ">=1.8,<2.0-dev",
+        "twig/extensions": "~1.0"
     },
     "minimum-stability": "dev"
 }

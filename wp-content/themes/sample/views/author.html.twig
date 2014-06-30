@@ -3,6 +3,6 @@
     {% if have_posts() %}
         {{ the_post() }}
         <h3><a href="{{ the_permalink() }}">{{ the_title() }}</a></h3>
-        <p>{{ the_content() }}</p>
+        <p>{{ get_the_content()|truncate(20) }}</p>
     {% endif %}
 {% endfor %}

@@ -11,6 +11,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), [
 
 // add twig functions.
 $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
+    $twig->addExtension(new \Twig_Extensions_Extension_Text($app));
     $twig->addExtension(new \Twig_Extension_Sample($app));
     $twig->addFunction('bloginfo', new \Twig_SimpleFunction('bloginfo', 'bloginfo'));
     $twig->addFunction('query_posts', new \Twig_SimpleFunction('query_posts', 'query_posts'));
@@ -21,7 +22,7 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
     $twig->addFunction('the_post', new \Twig_SimpleFunction('the_post', 'the_post'));
     $twig->addFunction('the_permalink', new \Twig_SimpleFunction('the_permalink', 'the_permalink'));
     $twig->addFunction('the_title', new \Twig_SimpleFunction('the_title', 'the_title'));
-    $twig->addFunction('the_content', new \Twig_SimpleFunction('the_content', 'the_content'));
+    $twig->addFunction('get_the_content', new \Twig_SimpleFunction('get_the_content', 'get_the_content'));
     $twig->addFunction('the_author', new \Twig_SimpleFunction('the_author', 'the_author'));
     $twig->addFunction('the_category', new \Twig_SimpleFunction('the_category', 'the_category'));
     $twig->addFunction('the_tags', new \Twig_SimpleFunction('the_tags', 'the_tags'));
