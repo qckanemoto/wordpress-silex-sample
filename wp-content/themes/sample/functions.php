@@ -23,7 +23,3 @@ class Twig_Extension_Sample extends \Twig_Extension
         return bloginfo('template_url') . '/assets/' . ltrim($path, '/');
     }
 }
-
-class SampleUtility
-{
-}

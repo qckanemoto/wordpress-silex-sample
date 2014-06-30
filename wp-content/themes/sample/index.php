@@ -2,8 +2,6 @@
 $app = new Silex\Application();
 $app['debug'] = true;
 
-$util = new SampleUtility();
-
 // use twig.
 $app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__ . '/views',
@@ -33,27 +31,27 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
 }));
 
 // for authors.
-$app->get('/archives/author/{route}', function ($route) use ($app, $util) {
+$app->get('/archives/author/{route}', function ($route) use ($app) {
     return $app['twig']->render('author.html.twig');
 })->assert('route', '.*');
 
 // for posts.
-$app->get('/archives/{route}', function ($route) use ($app, $util) {
+$app->get('/archives/{route}', function ($route) use ($app) {
     return $app['twig']->render('single.html.twig');
 })->assert('route', '.*');
 
 // for categories.
-$app->get('/category/{route}', function ($route) use ($app, $util) {
+$app->get('/category/{route}', function ($route) use ($app) {
     return $app['twig']->render('category.html.twig');
 })->assert('route', '.*');
 
 // for tags.
-$app->get('/tag/{route}', function ($route) use ($app, $util) {
+$app->get('/tag/{route}', function ($route) use ($app) {
     return $app['twig']->render('tag.html.twig');
 })->assert('route', '.*');
 
 // default.
-$app->get('/{route}', function ($route) use ($app, $util) {
+$app->get('/{route}', function ($route) use ($app) {
     $template = 'pages/' . trim($route, '/') . '.html.twig';
     try {
         return $app['twig']->render($template);
