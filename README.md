@@ -22,3 +22,8 @@ $ vi wp-config.php  # tailor to your environment
 
 * Browse website on [http://localhost/wordpress-silex-sample](http://localhost/wordpress-silex-sample)
 * Browse dashboard on [http://localhost/wordpress-silex-sample/wp-admin](http://localhost/wordpress-silex-sample/wp-admin) (user: `sample`, pass: `sample`)
+
+## See also
+
+* [WordPress+Silex | QUARTET Engineers' Blog](http://tech.quartetcom.co.jp/collection/wordpresssilex)
+* [WordPress+Silex 〜静的サイトにブログ機能を足して楽に管理したかった〜 // Speaker Deck](https://speakerdeck.com/qckanemoto/wordpress-plus-silex-jing-de-saitoniburoguji-neng-wozu-sitele-niguan-li-sitakatuta)
