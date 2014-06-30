@@ -4,36 +4,44 @@ $app['debug'] = true;
 
 $util = new SampleUtility();
 
+// use twig.
+$app->register(new Silex\Provider\TwigServiceProvider(), [
+    'twig.path' => __DIR__ . '/views',
+]);
+
 // for authors.
-$app->get('/archives/author/{route}', function ($route) use ($util) {
-    return $util->renderTemplate(__DIR__ . '/views/author.php');
+$app->get('/archives/author/{route}', function ($route) use ($app, $util) {
+    return $app['twig']->render('author.html.twig');
 })->assert('route', '.*');
 
 // for posts.
-$app->get('/archives/{route}', function ($route) use ($util) {
-    return $util->renderTemplate(__DIR__ . '/views/single.php');
+$app->get('/archives/{route}', function ($route) use ($app, $util) {
+    return $app['twig']->render('single.html.twig');
 })->assert('route', '.*');
 
 // for categories.
-$app->get('/category/{route}', function ($route) use ($util) {
-    return $util->renderTemplate(__DIR__ . '/views/category.php');
+$app->get('/category/{route}', function ($route) use ($app, $util) {
+    return $app['twig']->render('category.html.twig');
 })->assert('route', '.*');
 
 // for tags.
-$app->get('/tag/{route}', function ($route) use ($util) {
-    return $util->renderTemplate(__DIR__ . '/views/tag.php');
+$app->get('/tag/{route}', function ($route) use ($app, $util) {
+    return $app['twig']->render('tag.html.twig');
 })->assert('route', '.*');
 
 // default.
-$app->get('/{route}', function ($route) use ($util) {
-    $path = __DIR__ . '/views/pages/' . trim($route, '/') . '.php';
-    if (!file_exists($path)) {
-        $path = __DIR__ . '/views/pages/' . trim($route, '/') . '/index.php';
-        if (!file_exists($path)) {
-            return $util->renderTemplate(__DIR__ . '/views/404.php');
+$app->get('/{route}', function ($route) use ($app, $util) {
+    $template = 'pages/' . trim($route, '/') . '.html.twig';
+    try {
+        return $app['twig']->render($template);
+    } catch (Twig_Error $e) {
+        $template = 'pages/' . trim($route, '/') . '/index.html.twig';
+        try {
+            return $app['twig']->render($template);
+        } catch (Twig_Error $e) {
+            return $app['twig']->render('404.html.twig');
         }
     }
-    return $util->renderTemplate($path);
 })->assert('route', '.*');
 
 $app->run();
