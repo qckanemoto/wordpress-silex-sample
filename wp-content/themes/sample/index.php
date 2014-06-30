@@ -11,6 +11,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), [
 
 // add twig functions.
 $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
+    $twig->addExtension(new \Twig_Extension_Sample($app));
     $twig->addFunction('bloginfo', new \Twig_SimpleFunction('bloginfo', 'bloginfo'));
     $twig->addFunction('query_posts', new \Twig_SimpleFunction('query_posts', 'query_posts'));
     $twig->addFunction('wp_reset_query', new \Twig_SimpleFunction('wp_reset_query', 'wp_reset_query'));
