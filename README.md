@@ -6,7 +6,7 @@ WordPress + Silex sample
 
 ```bash
 $ cd /path/to/DocumentRoot
-$ git clone git@github.com:qckanemoto/wordpress-silex-sample.git
+$ git clone git@github.com:ttskch/wordpress-silex-sample.git
 $ cd wordpress-silex-sample
 $ composer install
 $ mysql -u[user_name] -p
@@ -26,4 +26,4 @@ $ vi wp-config.php  # tailor to your environment
 ## See also
 
 * [WordPress+Silex | QUARTET Engineers' Blog](http://tech.quartetcom.co.jp/collection/wordpresssilex)
-* [WordPress+Silex 〜静的サイトにブログ機能を足して楽に管理したかった〜 // Speaker Deck](https://speakerdeck.com/qckanemoto/wordpress-plus-silex-jing-de-saitoniburoguji-neng-wozu-sitele-niguan-li-sitakatuta)
+* [WordPress+Silex 〜静的サイトにブログ機能を足して楽に管理したかった〜 // Speaker Deck](https://speakerdeck.com/ttskch/wordpress-plus-silex-jing-de-saitoniburoguji-neng-wozu-sitele-niguan-li-sitakatuta)
